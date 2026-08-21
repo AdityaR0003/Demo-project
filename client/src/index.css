@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #f7f9fb;
+    color: #191c1e;
+    font-family: 'Hanken Grotesk', sans-serif;
+  }
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.gradient-btn {
+  background: linear-gradient(135deg, #0040df, #883ca6);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gradient-btn:hover:not(:disabled) {
+  box-shadow: 0 10px 25px -5px rgba(0, 64, 223, 0.45);
+  transform: translateY(-2px);
+}
+
+.gradient-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.gradient-btn:disabled {
+  background: #e0e3e5;
+  color: #747688;
+  box-shadow: none;
+  transform: none;
+  cursor: not-allowed;
+}
+
+.input-field {
+  background-color: #F1F5F9;
+  transition: all 0.25s ease;
+}
+
+.input-field:focus {
+  background-color: #ffffff;
+  border-color: #0040df;
+  box-shadow: 0 0 0 4px rgba(0, 64, 223, 0.12);
+}
