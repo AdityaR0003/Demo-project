@@ -16,7 +16,13 @@ const PORT = process.env.PORT || 5000;
 // CORS setup
 const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
 app.use(cors({
-    origin: [clientUrl, 'http://127.0.0.1:5173', 'http://localhost:3000'],
+    origin: (origin, callback) => {
+        if (!origin || origin === clientUrl || origin.endsWith('.vercel.app') || origin.includes('localhost') || origin.includes('127.0.0.1')) {
+            callback(null, true);
+        } else {
+            callback(null, true);
+        }
+    },
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
